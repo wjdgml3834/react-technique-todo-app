@@ -1,7 +1,18 @@
+@import "./reset.css";
+
+* {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   padding: 0;
   background: #e9ecef;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
 }
 
 code {
