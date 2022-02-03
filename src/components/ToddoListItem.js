@@ -1,12 +1,18 @@
 import styled from "@emotion/styled";
-import { MdCheckBoxOutlineBlank, MdRemoveCircleOutline } from "react-icons/md";
+import {
+  MdCheckBoxOutlineBlank,
+  MdCheckBox,
+  MdRemoveCircleOutline,
+} from "react-icons/md";
+import cn from "classnames";
 
-const TodoListItem = () => {
+const TodoListItem = ({ todo }) => {
+  const { text, checked } = todo;
   return (
     <ItemCont>
-      <CheckBoxCont className="">
-        <MdCheckBoxOutlineBlank />
-        <p>할일</p>
+      <CheckBoxCont className={cn("checkbox", { checked })}>
+        {checked ? <MdCheckBox /> : <MdCheckBoxOutlineBlank />}
+        <p>{text}</p>
       </CheckBoxCont>
       <RemoveCont>
         <MdRemoveCircleOutline />
@@ -19,7 +25,7 @@ const ItemCont = styled.div`
   padding: 1rem;
   display: flex;
   align-items: center;
-  &:nth-child(even) {
+  &:nth-of-type(even) {
     background: #f8f9fa;
   }
 `;

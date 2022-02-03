@@ -1,12 +1,12 @@
 import TodoListItem from "./ToddoListItem";
 import styled from "@emotion/styled";
 
-const TodoList = () => {
+const TodoList = ({ todos }) => {
   return (
     <Cont>
-      <TodoListItem />
-      <TodoListItem />
-      <TodoListItem />
+      {todos.map((todo) => (
+        <TodoListItem key={todo.id} todo={todo} />
+      ))}
     </Cont>
   );
 };
