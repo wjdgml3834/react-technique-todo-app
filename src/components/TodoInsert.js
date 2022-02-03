@@ -1,10 +1,19 @@
+import { useState, useCallback } from "react";
 import { MdAdd } from "react-icons/md";
 import styled from "@emotion/styled";
 
 const TodoInsert = () => {
+  const [value, setValue] = useState("");
+  const onChange = useCallback((event) => {
+    setValue(event.target.value);
+  }, []);
   return (
     <Cont>
-      <Input placeholder="할 일을 입력하세요" />
+      <Input
+        value={value}
+        onChange={onChange}
+        placeholder="할 일을 입력하세요"
+      />
       <SubmitBtn type="submit">
         <MdAdd />
       </SubmitBtn>
