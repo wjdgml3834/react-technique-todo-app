@@ -2,13 +2,22 @@ import { useState, useCallback } from "react";
 import { MdAdd } from "react-icons/md";
 import styled from "@emotion/styled";
 
-const TodoInsert = () => {
+const TodoInsert = ({ onInsert }) => {
   const [value, setValue] = useState("");
   const onChange = useCallback((event) => {
     setValue(event.target.value);
   }, []);
+
+  const addBtn = useCallback(
+    (event) => {
+      onInsert(value);
+      setValue("");
+      event.preventDefault();
+    },
+    [onInsert, value]
+  );
   return (
-    <Cont>
+    <Cont onSubmit={addBtn}>
       <Input
         value={value}
         onChange={onChange}
