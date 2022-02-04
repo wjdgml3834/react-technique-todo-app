@@ -1,11 +1,16 @@
 import TodoListItem from "./ToddoListItem";
 import styled from "@emotion/styled";
 
-const TodoList = ({ todos }) => {
+const TodoList = ({ todos, onRemove, onToggle }) => {
   return (
     <Cont>
       {todos.map((todo) => (
-        <TodoListItem key={todo.id} todo={todo} />
+        <TodoListItem
+          key={todo.id}
+          todo={todo}
+          onRemove={onRemove}
+          onToggle={onToggle}
+        />
       ))}
     </Cont>
   );

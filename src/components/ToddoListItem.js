@@ -6,15 +6,19 @@ import {
 } from "react-icons/md";
 import cn from "classnames";
 
-const TodoListItem = ({ todo }) => {
-  const { text, checked } = todo;
+const TodoListItem = ({ todo, onRemove, onToggle }) => {
+  const { id, text, checked } = todo;
+
   return (
     <ItemCont>
-      <CheckBoxCont className={cn("checkbox", { checked })}>
+      <CheckBoxCont
+        className={cn("checkbox", { checked })}
+        onClick={() => onToggle(id)}
+      >
         {checked ? <MdCheckBox /> : <MdCheckBoxOutlineBlank />}
         <p>{text}</p>
       </CheckBoxCont>
-      <RemoveCont>
+      <RemoveCont onClick={() => onRemove(id)}>
         <MdRemoveCircleOutline />
       </RemoveCont>
     </ItemCont>
