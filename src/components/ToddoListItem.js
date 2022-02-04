@@ -46,7 +46,7 @@ const CheckBoxCont = styled.button`
   }
   &.checked {
     svg {
-      color: #22b8cf;
+      color: #febb6c;
     }
     p {
       color: #adb5bd;
