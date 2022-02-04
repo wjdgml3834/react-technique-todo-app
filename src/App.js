@@ -17,7 +17,7 @@ function App() {
     },
     {
       id: 3,
-      text: "펩시 제로 콜라 편의점에서 성이님 돈으로 마시기",
+      text: "펩시 제로 콜라 편의점에서 마시기",
       checked: false,
     },
   ]);
