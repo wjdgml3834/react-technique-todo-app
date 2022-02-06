@@ -3,26 +3,24 @@ import TodoTemplate from "./components/TodoTemplate";
 import TodoInsert from "./components/TodoInsert";
 import TodoList from "./components/TodoList";
 
-function App() {
-  const [todos, setTodos] = useState([
-    {
-      id: 1,
-      text: "한라봉으로 주스 만들어 먹기",
-      checked: true,
-    },
-    {
-      id: 2,
-      text: "맥북 컴퓨터 삼성 컴퓨터로 바꾸기",
-      checked: true,
-    },
-    {
-      id: 3,
-      text: "펩시 제로 콜라 편의점에서 마시기",
+function createBulkTodos() {
+  const array = [];
+  for (let i = 1; i <= 2500; i++) {
+    array.push({
+      id: i,
+      text: `할일 ${i}`,
       checked: false,
-    },
-  ]);
+    });
+  }
+  return array;
+}
 
-  const nextId = useRef(4);
+function App() {
+  const [todos, setTodos] = useState(createBulkTodos);
+
+  const nextId = useRef(2501);
+
+  console.log(nextId);
 
   const onInsert = useCallback(
     (text) => {
