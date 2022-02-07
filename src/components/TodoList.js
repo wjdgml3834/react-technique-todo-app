@@ -1,3 +1,4 @@
+import React from "react";
 import TodoListItem from "./ToddoListItem";
 import styled from "@emotion/styled";
 
@@ -22,4 +23,7 @@ const Cont = styled.div`
   overflow-y: auto;
 `;
 
-export default TodoList;
+export default React.memo(TodoList);
+
+// APP 컴포넌트에 다른 state가 추가되어 해당 값들이 업데이트 될 때는 TOdoList 컴포넌트가 불필요한
+// 리렌더링을 할수도 있다. 그렇기 때문에 지금 React.memo를 사용해서 미리 최적화 해준것이다.
