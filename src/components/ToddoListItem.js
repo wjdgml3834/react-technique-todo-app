@@ -1,3 +1,4 @@
+import React from "react";
 import styled from "@emotion/styled";
 import {
   MdCheckBoxOutlineBlank,
@@ -65,4 +66,4 @@ const RemoveCont = styled.button`
   }
 `;
 
-export default TodoListItem;
+export default React.memo(TodoListItem);
